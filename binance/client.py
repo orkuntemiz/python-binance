@@ -100,6 +100,8 @@ class Client(object):
     MINING_TO_USDT_FUTURE = "MINING_UMFUTURE"
     MINING_TO_FIAT = "MINING_C2C"
 
+    TIMESTAMP_OFFSET=0
+
     def __init__(self, api_key=None, api_secret=None, requests_params=None, tld='com'):
         """Binance API Client constructor
 
@@ -126,7 +128,7 @@ class Client(object):
         self.session = self._init_session()
         self._requests_params = requests_params
         self.response = None
-        self.timestamp_offset = 0
+        self.timestamp_offset = TIMESTAMP_OFFSET
 
         # init DNS and SSL cert
         self.ping()
